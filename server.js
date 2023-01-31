@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 9001;
 app.post("/song", async (req, res) => {
   const ids = req.body.ids;
   const finalData = [];
-try{
  for(let id of ids){
     console.log(id);
     const data = await openNewPage(`https://saavn.me/songs?id=${id}`);
@@ -21,10 +20,6 @@ try{
       res.status(200).send(JSON.stringify(finalData));
     }
   };
-  }
-  catch (exceptionVar){
-    res.status(500).send(exceptionVar);
-  }
   
 });
 app.listen(PORT, () => {
