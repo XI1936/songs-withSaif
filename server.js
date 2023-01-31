@@ -22,9 +22,10 @@ try{
     }
   };
   }
-  catch{
-    res.status(500).send("Some error occurred");
+  catch (exceptionVar){
+    res.status(500).send(exceptionVar);
   }
+  
 });
 app.listen(PORT, () => {
   console.log("app listening at PORT", PORT);
